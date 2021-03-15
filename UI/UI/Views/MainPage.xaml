@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UI.MainPage">
+
+    <StackLayout BackgroundColor="White">
+
+        <!--Image + Frame-->
+        <!--img couv-->
+        <Frame HeightRequest="150" 
+               WidthRequest="150" 
+               HorizontalOptions="Fill" 
+               VerticalOptions="Fill">
+            <Image Source="{Binding Couv}" 
+                   Aspect="AspectFill" 
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   Margin="-20" />
+        </Frame>
+
+        <!--img profil-->
+        <Frame Margin="10,-50,10,10"
+               CornerRadius="50"
+               HeightRequest="60"
+               WidthRequest="60"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+            <Image Source="{Binding PP}"
+                   Aspect="AspectFill"
+                   Margin="-20"
+                   HeightRequest="100"
+                   WidthRequest="100" />
+        </Frame>
+
+        <!--cadre txt nom + vues + ptg-->
+        <Frame BackgroundColor="White"
+               Margin="0,-15,0,0">
+            <StackLayout Spacing="2" 
+                         HorizontalOptions="CenterAndExpand" 
+                         VerticalOptions="Fill">
+                <Label Text="Vues" FontSize="16" 
+                       HorizontalTextAlignment="Start" 
+                       TextColor="DarkGray"
+                       Margin="0,0,250,0"/>
+                <Label Text="{Binding nbView}" 
+                       x:Name="ViewCount"
+                       FontSize="16" 
+                       HorizontalTextAlignment="Start" 
+                       TextColor="DarkGray"
+                       Margin="0,-25,0,0"/>
+                <Label Text="Partages" 
+                       FontSize="16" 
+                       HorizontalTextAlignment="End" 
+                       TextColor="DarkGray"
+                       Margin="250,-15,0,30"/>
+                <Label Text="{Binding Nbshare}" 
+                       x:Name="ShareCount"
+                       FontSize="16" 
+                       HorizontalTextAlignment="End" 
+                       TextColor="DarkGray"
+                       Margin="0,-25,0,0"/>
+                <Label Text="{Binding Username}" 
+                       FontSize="25" 
+                       HorizontalTextAlignment="Center" 
+                       TextColor="Black"/>
+            </StackLayout>
+        </Frame>
+
+        <!--BoxView-->
+        <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+
+        <!--cadre txt infos-->
+        <Frame BackgroundColor="White">
+            <StackLayout Spacing="2" 
+                         HorizontalOptions="Start" 
+                         VerticalOptions="Fill">
+                <Label Text="Informations" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       TextColor="Black"/>
+                <Label Text="{Binding Birthdate, StringFormat='Né(e) le {0}'}" 
+                       FontSize="16" 
+                       TextColor="Black"/>
+                <Label Text="{Binding Birthplace, StringFormat='A {0}'}" 
+                       FontSize="16" 
+                       TextColor="Black"/>
+            </StackLayout>
+        </Frame>
+
+        <!--cadre txt description-->
+        <Frame BackgroundColor="White">
+            <StackLayout Spacing="2" 
+                         HorizontalOptions="CenterAndExpand" 
+                         VerticalOptions="Fill">
+                <Label FontSize="20" 
+                       Text="Description" 
+                       FontAttributes="Bold" 
+                       TextColor="Black"/>
+                <Label Text="{Binding Description}" 
+                       FontSize="16" 
+                       TextColor="Black"
+                       HorizontalTextAlignment="End"
+                       Margin="50,0,0,0"/>
+            </StackLayout>
+        </Frame>
+
+        <Grid Margin="20,60,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--Button-->
+            <Button Command="{Binding OnButtonShareClickedCommand}" x:Name="btnShare" Text="Share my profile" TextColor="White" BackgroundColor="Crimson" CornerRadius="5" WidthRequest="80" HeightRequest="50" Grid.Row="0" Grid.Column="1" />
+        </Grid>
+
+    </StackLayout>
+</ContentPage>
+    
