@@ -10,7 +10,7 @@ namespace UI
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ProfileListPage();
         }
 
         protected override void OnStart()
